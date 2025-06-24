@@ -1,5 +1,6 @@
 package com.green.firstserver;
 
+import com.green.firstserver.model.MemoGetOneRes;
 import com.green.firstserver.model.MemoGetRes;
 import com.green.firstserver.model.MemoPostReq;
 import org.apache.ibatis.annotations.Mapper;
@@ -13,5 +14,7 @@ public interface MemoMapper {
 
    int insMemo(MemoPostReq req);
    List<MemoGetRes> selMemoList();
+
+   MemoGetOneRes selMemo(int id);
 
 }

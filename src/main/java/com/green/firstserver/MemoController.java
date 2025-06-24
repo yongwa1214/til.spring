@@ -1,5 +1,6 @@
 package com.green.firstserver;
 
+import com.green.firstserver.model.MemoGetOneRes;
 import com.green.firstserver.model.MemoGetRes;
 import com.green.firstserver.model.MemoPostReq;
 import lombok.RequiredArgsConstructor;
@@ -31,11 +32,11 @@ public class MemoController {
     }
 
     // 얘는 디테일
-    @GetMapping("/memo/{memo_id}")
-    public String getMemo(@PathVariable("memoId") int memoId){
+    @GetMapping("/memo/{id}")
+    public MemoGetOneRes getMemo(@PathVariable int id){
 
-            System.out.println("memoId:" + memoId);
-            return "Hello World! - memoId: " + memoId;
+        System.out.println("getMemo:" + id);
+        return memoService.selMemo(id);
 
     }
 
@@ -45,4 +46,6 @@ public class MemoController {
         int result = memoService.insMemo(req);
         return result == 1 ? "성공": "실패";
     }
+
+
 }

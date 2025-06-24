@@ -14,4 +14,10 @@
         FROM memo
         ORDER BY id DESC
     </select>
+
+    <select id="selMemo">
+        SELECT title,content, created_at AS createdAt
+        FROM memo
+        Where id = #{id}
+    </select>
 </mapper>
